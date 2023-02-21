@@ -16,13 +16,8 @@ class Cuti extends Model
     ];
     public $timestamps = true;
 
-    /**
-     * Get the user that owns the Cuti
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
+    public function userCuti()
     {
-        return $this->belongsTo('App\User', 'id', 'id_user');
+        return $this->belongsTo('App\User','id');
     }
 }

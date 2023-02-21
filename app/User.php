@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cuti()
+    {
+        return $this->hasOne('App\Cuti', 'id_user');
+    }
+
+    public function pengajuan()
+    {
+        return $this->hasMany('App\PengajuanCuti', 'id_user','id');
+    }
 }

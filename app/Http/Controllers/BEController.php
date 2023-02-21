@@ -15,7 +15,7 @@ class BEController extends Controller
         if(!$id){
             $list = PengajuanCuti::with('user')->get();
         }else{
-            $list = PengajuanCuti::with('user')->fins($id);
+            $list = PengajuanCuti::with('user')->find($id);
         }
 
         return response([
@@ -40,9 +40,10 @@ class BEController extends Controller
             ], 500);
         
         $cuti = new PengajuanCuti;
-        $cuti->id_user = auth()->id_user;
+        $cuti->id_user = $request->input('id_user');
         $cuti->tgl_mulai = $request->input('tgl_mulai');
         $cuti->lama_cuti = $request->input('lama_cuti');
+        $cuti->tgl_berakhir = date('Y-m-d', strtotime('+'.$request->input('lama_cuti').' days', strtotime($request->input('tgl_mulai'))));
         $cuti->alasan = $request->input('alasan');
         if($cuti->save())
             return response([

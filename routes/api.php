@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('/annual-leaves','BEController@list_cuti');
+Route::post('/annual-leaves','BEController@create_cuti');
+Route::get('/annual-leaves/{id}','BEController@list_cuti');
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

@@ -18,10 +18,11 @@ class CreatePengajuanCutisTable extends Migration
             $table->integer('id_user');
             $table->date('tgl_mulai');
             $table->integer('lama_cuti');
+            $table->date('tgl_berakhir');
             $table->string('alasan');
-            $table->string('keterangan');
-            $table->string('status_hrd');
-            $table->string('status_atasan');
+            $table->string('keterangan')->nullable();
+            $table->enum('status_hrd',['WAITING', 'APPROVED', 'DECLINED'])->default('WAITING');
+            $table->enum('status_atasan',['WAITING', 'APPROVED', 'DECLINED'])->default('WAITING');
             $table->timestamps();
             $table->softDeletes();
         });
