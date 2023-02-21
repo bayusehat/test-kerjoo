@@ -14,8 +14,16 @@ class CreatePengajuanCutisTable extends Migration
     public function up()
     {
         Schema::create('pengajuan_cutis', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_pengajuan_cuti');
+            $table->integer('id_user');
+            $table->date('tgl_mulai');
+            $table->integer('lama_cuti');
+            $table->string('alasan');
+            $table->string('keterangan');
+            $table->string('status_hrd');
+            $table->string('status_atasan');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/test-grid','FEController@grid');
 Route::get('/test-flex','FEController@flex');
+
+Route::get('/annual-leaves','BEController@list_cuti');
+Route::post('/annual-leaves','BEController@create_cuti');
+Roite::get('/annual-leaves/{id}','BEController@list_cuti');
